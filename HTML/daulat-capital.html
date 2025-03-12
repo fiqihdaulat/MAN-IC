@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daulat Capital - Prop Firm Syariah Pertama di Indonesia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background-color: #0f172a;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+    header:hover {
+      background-color: #1e293b;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: 700;
+      transition: transform 0.3s;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+    nav a:hover {
+      color: #166534;
+      transform: translateY(-2px);
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #0f172a 40%, #1e293b 100%);
+      color: #fff;
+      transition: background 0.5s;
+    }
+    .hero:hover {
+      background: linear-gradient(135deg, #1e293b 40%, #0f172a 100%);
+    }
+    .hero h1 {
+      font-size: 4em;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
+    }
+    .hero p {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease;
+    }
+    .btn-primary {
+      background-color: #166534;
+      color: #fff;
+      padding: 15px 40px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: background-color 0.3s, transform 0.2s;
+      display: inline-block;
+      animation: fadeIn 1.5s ease;
+    }
+    .btn-primary:hover {
+      background-color: #14532d;
+      transform: translateY(-2px);
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5em;
+      color: #0f172a;
+      transition: color 0.3s;
+    }
+    section h2:hover {
+      color: #166534;
+    }
+    .features, .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .feature-card, .plan-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature-card:hover, .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    .feature-card h3, .plan-card h3 {
+      margin-bottom: 15px;
+      color: #0f172a;
+      font-size: 1.5em;
+      transition: color 0.3s;
+    }
+    .feature-card h3:hover, .plan-card h3:hover {
+      color: #166534;
+    }
+    .feature-card p, .plan-card ul li {
+      font-size: 1em;
+      color: #555;
+    }
+    .plan-price {
+      font-size: 2.2em;
+      margin: 20px 0;
+      color: #166534;
+    }
+    footer {
+      background-color: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      transition: background-color 0.3s;
+    }
+    footer:hover {
+      background-color: #1e293b;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    input, textarea {
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: #166534;
+      box-shadow: 0 0 5px rgba(22, 101, 52, 0.5);
+      outline: none;
+    }
+    button {
+      background-color: #166534;
+      color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background-color: #14532d;
+      transform: translateY(-2px);
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Daulat Capital</div>
+    <nav>
+      <a href="#tentang">Tentang</a>
+      <a href="#fitur">Fitur</a>
+      <a href="#plans">Paket</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Prop Firm Syariah Pertama di Indonesia</h1>
+    <p>Mendukung trader Indonesia meraih kebebasan finansial dengan sistem halal dan transparan.</p>
+    <a href="#plans" class="btn-primary">Mulai Sekarang</a>
+  </section>
+
+  <section id="tentang">
+    <h2>Tentang Daulat Capital</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+      Daulat Capital adalah proprietary trading firm berbasis syariah pertama di Indonesia. Kami menyediakan akses modal bagi trader yang ingin berkembang tanpa melanggar prinsip keuangan Islam. Misi kami adalah menciptakan peluang trading yang adil, transparan, dan halal untuk masyarakat Indonesia.
+    </p>
+  </section>
+
+  <section id="fitur">
+    <h2>Kenapa Memilih Kami?</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>100% Syariah Compliance</h3>
+        <p>Instrumen trading kami telah diverifikasi oleh Dewan Pengawas Syariah.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Akses Modal Hingga $200K</h3>
+        <p>Beragam paket tantangan untuk mendapatkan modal besar tanpa risiko dana pribadi.</p>
+      </div>
+      <div class="feature-card">
+        <h3>No Riba, No Gharar</h3>
+        <p>Bebas dari unsur riba, maysir, dan gharar dalam semua aspek bisnis.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Komunitas & Edukasi</h3>
+        <p>Gabung komunitas trader profesional dan ikuti pelatihan eksklusif dari mentor berpengalaman.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <h2>Paket Akun Prop Trading</h2>
+    <div class="plans">
+      <div class="plan-card">
+        <h3>Basic Challenge</h3>
+        <p class="plan-price">$10,000</p>
+        <ul>
+          <li>Biaya: $89</li>
+          <li>Target Profit: 8%</li>
+          <li>Drawdown Maks: 5%</li>
+          <li>Akun Syariah</li>
+        </ul>
+        <a href="#form-pendaftaran" class="btn-primary">Daftar</a>
+      </div>
+      <div class="plan-card">
+        <h3>Pro Challenge</h3>
+        <p class="plan-price">$50,000</p>
+        <ul>
+          <li>Biaya: $299</li>
+          <li>Target Profit: 8%</li>
+          <li>Drawdown Maks: 5%</li>
+          <li>Akun Syariah</li>
+        </ul>
+        <a href="#form-pendaftaran" class="btn-primary">Daftar</a>
+      </div>
+      <div class="plan-card">
+        <h3>Elite Challenge</h3>
+        <p class="plan-price">$100,000</p>
+        <ul>
+          <li>Biaya: $499</li>
+          <li>Target Profit: 8%</li>
+          <li>Drawdown Maks: 5%</li>
+          <li>Akun Syariah</li>
+        </ul>
+        <a href="#form-pendaftaran" class="btn-primary">Daftar</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="form-pendaftaran">
+    <h2>Formulir Pendaftaran</h2>
+    <form onsubmit="sendToWhatsApp(event)">
+      <input type="text" name="nama" placeholder="Nama Lengkap" required>
+      <input type="email" name="email" placeholder="Alamat Email" required>
+      <input type="tel" name="telepon" placeholder="Nomor Telepon" required>
+      <textarea name="pesan" rows="4" placeholder="Pesan Tambahan (Opsional)"></textarea>
+      <button type="submit">Kirim Pendaftaran</button>
+    </form>
+  </section>
+
+  <section id="kontak">
+    <h2>Hubungi Kami</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+      Siap memulai perjalanan trading halal Anda? Hubungi kami melalui email <strong>info@daulatcapital.com</strong> atau klik tombol di bawah ini untuk konsultasi langsung via WhatsApp.
+    </p>
+    <div style="text-align:center; margin-top:30px;">
+      <a href="https://wa.me/6287864456183" target="_blank" class="btn-primary">Chat WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Daulat Capital. Seluruh Hak Cipta Dilindungi.
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const nama = document.querySelector('input[name="nama"]').value;
+      const email = document.querySelector('input[name="email"]').value;
+      const telepon = document.querySelector('input[name="telepon"]').value;
+      const pesan = document.querySelector('textarea[name="pesan"]').value;
+
+      const message = `Pendaftaran Baru%0ANama: ${nama}%0AEmail: ${email}%0ATelepon: ${telepon}%0APesan: ${pesan}`;
+
+      window.open(`https://wa.me/6287864456183?text=${message}`, '_blank');
+    }
+  </script>
+</body>
+</html>
